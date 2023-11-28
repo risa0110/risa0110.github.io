@@ -2,16 +2,18 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>中間課題</title>
 </head>
 <body>
+
 <button onclick="changeAll()">ALL</button>
 <button onclick="changeBot()">三郎BOT</button>
 <button onclick="changeJiro()">次郎</button>
 <button onclick="changeTaro()">太郎</button>
-<div id="answer"></div>
 
-<script>
+<div id="answer"></div>
+<script type="text/javascript">
   let tweets = [
     { name: "三郎BOT", message: "21時でござる", tweetedAt: "2019-11-01 21:00:00", avatar: "https://morimorihoge.github.io/teu2019f/images/omocha_robot.png" },
     { name: "次郎", message: "悲しいので寝ます", tweetedAt: "2019-11-01 20:14:44", avatar: "https://morimorihoge.github.io/teu2019f/images/idol_fan_penlight_sougankyou.png" },
