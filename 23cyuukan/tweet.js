@@ -43,15 +43,15 @@ function changeJiro(){
 }
 
 //太郎のみ表示
-function changeTaro(){
-  let outputHtml='<ul style="margin: 0; padding: 0;">';
+function changeTaro() {
+  let outputHtml = '<ul style="margin: 0; padding: 0;">';
   let i = 0;
-  while(i<tweets.length){
-    if (tweets[i].name==="太郎"){
+  while (i < tweets.length) {
+    if (tweets[i].name === "太郎") {
       outputHtml += `<div style=" border: solid 1px #333333;"><li style="list-style:none; margin-left: 5px;"><img src="${tweets[i].avatar}" alt="" width="10%"> <b>${tweets[i].name}</b> ${tweets[i].message} <i>${tweets[i].tweetedAt}</i></li></div>`;
     }
     i++;
   }
-  outputHtml+='</ul>';
+  outputHtml += '</ul>';
   answer.innerHTML = outputHtml;
 }
