@@ -13,7 +13,7 @@ $(".openbtn1").click(function (){
 });
 $("#g-nav a").click(function(){
   $(".openbtn1").removeClass('active');
-  $("#g-nav").removeClass('panelactive');
+  $("#g-nav"),removeClass('panelactive');
 });
 
 /*スクロールアニメーション*/
