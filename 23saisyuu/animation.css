@@ -1,0 +1,163 @@
+@charset "utf-8";
+
+/*ローディングページのアニメーション用*/
+
+#splash{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background: #333;
+  text-align: center;
+  color: #fff;
+}
+
+#splash_logo{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.fadeUp{
+  animation-name: fadeUpAnime;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes fadeUpAnime {
+  from{
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#container{
+  width: 100%;
+  height: 100vh;
+  background: #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+a{
+  color: #333;
+  text-decoration: none;
+}
+
+a:hover{
+  text-decoration: none;
+}
+
+/*ナビゲーションのためのCSS*/
+#g-nav{
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  right: -100%;
+  width: 30%;
+  height: 100vh;
+  background: #f0f0f0;
+  transition: all 0.6s;
+}
+#g-nav.panelactive{
+  right: 0;
+}
+#g-nav.panelactive #g-nav-list{
+  position: fixed;
+  z-index: 999;
+  width: 30%;
+  height: 100vh;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+@media only screen and (max-width: 768px){
+  #g-nav,
+  #g-nav.panelactive #g-nav-list{
+    width: 100%;
+  }
+}
+
+/*ナビゲーション*/
+#g-nav ul{
+  position: absolute;
+  z-index: 999;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+#g-nav li{
+  list-style: none;
+  text-align: center;
+}
+#g-nav li a{
+  color: #333333;
+  text-decoration: none;
+  padding: 10px;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-weight: bold;
+  transition: all .5s;
+}
+#g-nav li a:hover{
+  color: #cccccc;
+}
+/*ボタンの形変化*/
+.openbtn1{
+  position: absolute;
+  z-index:9999;
+  left: auto;
+  right: 10px;
+  cursor: pointer;
+   width: 50px;
+   height:50px;
+  border-radius: 5px;
+  margin-top:8px;
+}
+
+.openbtn1 span{
+  display: inline-block;
+  transition: all .4s;
+  position: absolute;
+  left: 14px;
+  height: 3px;
+  border-radius: 2px;
+  background: #333333;
+  width: 45%;
+}
+
+.openbtn1 span:nth-of-type(1){
+  top: 15px;
+}
+.openbtn1 span:nth-of-type(2){
+  top: 23px;
+}
+.openbtn1 span:nth-of-type(3){
+  top: 31px;
+}
+
+.openbtn1.active span:nth-of-type(1){
+  top: 18px;
+  left: 18px;
+  transform: translateY(6px) rotate(-45deg);
+  width: 30%;
+}
+.openbtn1.active span:nth-of-type(2){
+  opacity: 0;
+}
+.openbtn1.active span:nth-of-type(3){
+  top: 30px;
+  left: 18px;
+  transform: translateY(-6px) rotate(45deg);
+  width: 30%;
+}
+

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>みなとみらいグルメ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="みなとみらいの隠れた名店をご紹介!">
+  <meta http-equiv="x-ua-compatible" content="IE=Edge,chrome=1">
+  <link type="text/css" href="animation.css" rel="stylesheet">
+  <link type="text/css" href="layout.css" rel="stylesheet">
+</head>
+<body id="top">
+<header id="header">
+  <div class="title">
+    <h1>FOODIE</h1>
+  </div>
+  <div class="openbtn1"><span></span><span></span><span></span></div>
+  <nav id="g-nav" class>
+    <div id="g-nav-list">
+      <ul>
+        <li>
+          <a href="#">Top</a>
+        </li>
+        <li>
+          <a href="#">Restaurant</a>
+        </li>
+        <li>
+          <a href="#">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<hr style="margin: 0">
+
+<main>
+  <div class="pages">
+    <p><a href="index.html">HOME</a>/YOUR RECOMMEND</p>
+  </div>
+  <div class="wrap">
+  <div class="subtitle"><h2>YOUR RECOMMEND</h2></div>
+  <div class="information">
+    <form id="contact-form" role="form">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="あなたの名前">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="お店の名前" value="" required>
+      </div>
+      <textarea class="form-control" placeholder="おすすめ理由" required></textarea>
+      <div class="button">
+      <button class="send-button btn btn-primary" id="submit" type="submit" value="送信">
+        <div class="alt-send-button">
+          <span class="send-text">送信</span>
+        </div>
+      </button>
+      </div>
+    </form>
+  </div>
+    <script>
+    <?php
+　if(count($_POST)){
+  $url = 'https://script.google.com/macros/s/AKfycby6eKuV1aO-fboEakIDZphlsY_bBDXqv01v1u4nErT24GT_zs2eofkAi5V7vQo41Pwi/exec';
+  $data = array(
+    'name' => $_POST['name'],
+    'mail' => $_POST['mail'],
+    'body' => $_POST['body'],
+    );
+    $context = array(
+    'http' => array(
+    'method'  => 'POST',
+    'header'  => implode("\r\n", array('Content-Type: application/x-www-form-urlencoded',)),
+    'content' => http_build_query($data)
+    )
+    );
+    $response_json = file_get_contents($url, false, stream_context_create($context));
+    $response_data = json_decode($response_json);
+    var_dump($response_data);
+    }
+    ?></script>
+    <form action="./" method="post">
+      <input type="text" name="name" placeholder="あなたの名前">
+      <input type="text" name="mail" placeholder="お店の名前">
+      <textarea name="body" placeholder="おすすめ理由"></textarea>
+      <button type="submit">送信</button>
+    </form>
+  </div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
+</script>
+<script src="loading.js"></script>
+</body>
+</html>
