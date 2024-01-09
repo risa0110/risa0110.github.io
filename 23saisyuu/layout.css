@@ -25,7 +25,7 @@ a{
 }
 .title h1{
   margin: 10px 5px 10px;
-  padding: 0px 20px 2px;
+  padding: 0 20px 2px;
   font-weight: bold;
   letter-spacing: 6px;
 }
@@ -97,6 +97,12 @@ a{
   flex-wrap: wrap;
   padding-bottom: 50px;
 }
+#pictures img{
+  transition: 0.3s;
+}
+#pictures img:hover{
+  opacity: 0.7;
+}
 #shopList li{
   list-style: none;
   padding: 0 45px 0 0;
@@ -161,9 +167,35 @@ footer{
 }
 
 /*フォームのCSS*/
+.info{
+  margin-top: 40px;
+}
 .form-control{
   background-color: #f0f0f0;
 }
+.form-group p{
+  margin: 20px 0 10px 10px;
 
+}
+.form-group input{
+  width: 40%;
+  height: 20px;
+  outline: #333333;
+  margin-left:20px;
+}
+.message{
+  margin:0 0 30px 20px;
+  width: 80%;
+  height: 200px;
+  background-color: #f0f0f0;
+}
+.button{
+  text-align: center;
+}
+.button input{
+  width: 10em;
+  height: 3em;
+  margin-bottom: 30px;
+}
 
 

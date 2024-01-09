@@ -19,10 +19,10 @@
     <div id="g-nav-list">
       <ul>
         <li>
-          <a href="#">Top</a>
+          <a href="index.html">Top</a>
         </li>
         <li>
-          <a href="#">Restaurant</a>
+          <a href="index.html#recomendation">Restaurant</a>
         </li>
         <li>
           <a href="#">Contact</a>
@@ -39,54 +39,62 @@
   </div>
   <div class="wrap">
   <div class="subtitle"><h2>YOUR RECOMMEND</h2></div>
-  <div class="information">
-    <form id="contact-form" role="form">
+  <div class="info">
+    <form method="post" action="">
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="あなたの名前">
+        <p>あなたの名前</p>
+        <input type="text" class="form-control" value="" placeholder="">
       </div>
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="お店の名前" value="" required>
+        <p>お店の名前</p>
+        <input type="text" class="form-control" placeholder="" value="" required>
       </div>
-      <textarea class="form-control" placeholder="おすすめ理由" required></textarea>
+      <div class="form-group">
+      <p>おすすめの理由</p>
+      <textarea class="message" placeholder=""  required></textarea>
+      </div>
       <div class="button">
-      <button class="send-button btn btn-primary" id="submit" type="submit" value="送信">
-        <div class="alt-send-button">
-          <span class="send-text">送信</span>
-        </div>
-      </button>
+        <input type="button" value="送信">
       </div>
     </form>
   </div>
-    <script>
-    <?php
-　if(count($_POST)){
-  $url = 'https://script.google.com/macros/s/AKfycby6eKuV1aO-fboEakIDZphlsY_bBDXqv01v1u4nErT24GT_zs2eofkAi5V7vQo41Pwi/exec';
-  $data = array(
-    'name' => $_POST['name'],
-    'mail' => $_POST['mail'],
-    'body' => $_POST['body'],
-    );
-    $context = array(
-    'http' => array(
-    'method'  => 'POST',
-    'header'  => implode("\r\n", array('Content-Type: application/x-www-form-urlencoded',)),
-    'content' => http_build_query($data)
-    )
-    );
-    $response_json = file_get_contents($url, false, stream_context_create($context));
-    $response_data = json_decode($response_json);
-    var_dump($response_data);
-    }
-    ?></script>
-    <form action="./" method="post">
-      <input type="text" name="name" placeholder="あなたの名前">
-      <input type="text" name="mail" placeholder="お店の名前">
-      <textarea name="body" placeholder="おすすめ理由"></textarea>
-      <button type="submit">送信</button>
-    </form>
   </div>
+</main>
+<footer>
+  <hr>
+  <div class="content">
+    <div class="SNS">
+      <a href="https://www.facebook.com/people/%E3%83%AA%E3%83%8E%E3%83%99%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%B9%E3%83%BC%E3%83%97/100063615490417/" target="_blank">
+        <img src="img/bxl-facebook-square.svg" style="width: 30px; height: 30px;">
+      </a>
+      <a href="https://www.instagram.com/" target="_blank">
+        <img class="mx-2" src="img/bxl-instagram.svg" style="width: 30px; height: 30px;">
+      </a>
+      <a href="https://twitter.com/i/flow/login?redirect_after_login=%2F%3Flogout%3D1689735531237" target="_blank">
+        <img src="img/bxl-twitter.svg" style="width: 30px; height: 30px;">
+      </a>
+    </div>
+    <div class="menu">
+      <div class="TOP">
+        <a href="index.html"><h3>TOP</h3></a>
+        <a href="index.html#about"><p>このサイトについて</p></a>
+        <a href="index.html#recomendation"><p>おすすめ名店</p></a>
+      </div>
+      <div class="RESTAURANT">
+        <a href="index.html#recomendation"><h3>RESTAURANT</h3></a>
+        <div id="shopList"></div>
+      </div>
+      <div class="CONTACT">
+        <a href="#"><h3>CONTACT</h3></a>
+      </div>
+    </div>
+  </div>
+  <div>
+    <p>© 2023</p>
+  </div>
+</footer>
 
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
 </script>
 <script src="loading.js"></script>
