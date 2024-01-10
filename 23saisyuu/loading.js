@@ -28,6 +28,37 @@ $(function(){
   });
 });
 
+/*ボタンアニメーション*/
+function PageTopAnime() {
+  var scroll = $(window).scrollTop();
+  if (scroll >= 200){
+    $('#page-top').removeClass('DownMove');
+    $('#page-top').addClass('UpMove');
+  }else{
+    if($('#page-top').hasClass('UpMove')){
+      $('#page-top').removeClass('UpMove');
+      $('#page-top').addClass('DownMove');
+    }
+  }
+}
+
+// 画面をスクロールをしたら動かしたい場合の記述
+$(window).scroll(function () {
+  PageTopAnime();
+});
+
+// ページが読み込まれたらすぐに動かしたい場合の記述
+$(window).on('load', function () {
+  PageTopAnime();
+});
+
+// #page-topをクリックした際の設定
+$('#page-top a').click(function () {
+  $('body,html').animate({
+    scrollTop: 0
+  }, 500);
+  return false;
+});
 
 
 
