@@ -176,10 +176,10 @@ a:hover{
   font-size:0.6rem;
   transition:all 0.3s;
 }
-#page-top img:hover{
+#page-top a img:hover{
   opacity: 0.7;
 }
-#page-top img{
+#page-top a img{
   background-color: #333333;
   height: 50px;
   width: 47px;
